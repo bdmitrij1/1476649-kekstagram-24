@@ -1,4 +1,4 @@
-const COMMENT_LENGTH = 140;
+const MAX_COMMENT_LENGTH = 140;
 
 // Функция, возвращающая случайное целое число из переданного диапазона включительно.
 // Источник функции - https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Global_Objects/Math/random
@@ -11,8 +11,8 @@ function generateNumber(min, max) {
 generateNumber(10, 20); // временно вызвал функцию
 
 // Функция для проверки максимальной длины строки комментария.
-function checkLengthComment(comment) {
-  return !((comment.length > COMMENT_LENGTH));
+function checkLengthComment(comment, maxLenght) {
+  return maxLenght > comment.length;
 }
 
-checkLengthComment('Привет мир'); // временно вызвал функцию
+checkLengthComment('Привет мир', MAX_COMMENT_LENGTH); // временно вызвал функцию
