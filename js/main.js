@@ -1,23 +1,8 @@
-const MAX_COMMENT_LENGTH = 140;
-
-// Функция, возвращающая случайное целое число из переданного диапазона включительно.
-// Источник функции - https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Global_Objects/Math/random
-function generateNumber(min, max) {
-  min = Math.round(min);
-  max = Math.round(max);
-  return Math.floor(Math.random() * (max - min + 1)) + min;
-}
+import {getRandomPositiveInteger} from './utils/get-random-positive-integer.js';
+import {MAX_COMMENT_LENGTH, checkStringLength} from './utils/check-string-length.js';
 
 // временно вызвал функцию, чтобы убрать ошибку eslint
-generateNumber(10, 20);
-
-// Функция для проверки максимальной длины строки комментария.
-function checkLengthComment(comment, maxLenght) {
-  return maxLenght > comment.length;
-}
-
-// временно вызвал функцию, чтобы убрать ошибку eslint
-checkLengthComment('Привет мир', MAX_COMMENT_LENGTH);
+checkStringLength('Привет мир', MAX_COMMENT_LENGTH);
 
 const DESCRIPTIONS_ID_MIN = 1;
 const DESCRIPTIONS_ID_MAX = 25;
@@ -64,17 +49,17 @@ const NAMES = [
   'Дворняга',
 ];
 
-const getRandomArrayElement = (elements) => elements[generateNumber(0, elements.length - 1)];
+const getRandomArrayElement = (elements) => elements[getRandomPositiveInteger(0, elements.length - 1)];
 
 const createPicture = function() {
   return {
-    id: generateNumber(DESCRIPTIONS_ID_MIN, DESCRIPTIONS_ID_MAX),
-    url: (`photos/${  generateNumber(URL_ID_MIN, URL_ID_MAX)  }.jpg`),
+    id: getRandomPositiveInteger(DESCRIPTIONS_ID_MIN, DESCRIPTIONS_ID_MAX),
+    url: (`photos/${  getRandomPositiveInteger(URL_ID_MIN, URL_ID_MAX)  }.jpg`),
     description: getRandomArrayElement(DESCRIPTION_PHOTOS),
-    likes: generateNumber(MIN_LIKES, MAX_LIKES),
+    likes: getRandomPositiveInteger(MIN_LIKES, MAX_LIKES),
     comments: {
-      id: generateNumber(0, MESSAGE_ID_MAX),
-      avatar: (`img/avatar-${  generateNumber(AVATAR_ID_MIN, AVATAR_ID_MAX)  }.svg`),
+      id: getRandomPositiveInteger(0, MESSAGE_ID_MAX),
+      avatar: (`img/avatar-${  getRandomPositiveInteger(AVATAR_ID_MIN, AVATAR_ID_MAX)  }.svg`),
       message: getRandomArrayElement(MESSAGES),
       name: getRandomArrayElement(NAMES),
     },
