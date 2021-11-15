@@ -1,5 +1,7 @@
 import {getRandomPositiveInteger} from './get-random-positive-integer.js';
 
+const COMMENTS_MIN = 4;
+const COMMENTS_MAX = 25;
 const DESCRIPTIONS_ID_MIN = 1;
 const DESCRIPTIONS_ID_MAX = 25;
 const URL_ID_MIN = 1;
@@ -47,4 +49,4 @@ const NAMES = [
 
 const getRandomArrayElement = (elements) => elements[getRandomPositiveInteger(0, elements.length - 1)];
 
-export {DESCRIPTIONS_ID_MIN, DESCRIPTIONS_ID_MAX, URL_ID_MIN, URL_ID_MAX, DESCRIPTION_PHOTOS, MIN_LIKES, MAX_LIKES, MESSAGE_ID_MAX, AVATAR_ID_MIN, AVATAR_ID_MAX, MESSAGES, NAMES, getRandomArrayElement};
+export {COMMENTS_MIN, COMMENTS_MAX, DESCRIPTIONS_ID_MIN, DESCRIPTIONS_ID_MAX, URL_ID_MIN, URL_ID_MAX, DESCRIPTION_PHOTOS, MIN_LIKES, MAX_LIKES, MESSAGE_ID_MAX, AVATAR_ID_MIN, AVATAR_ID_MAX, MESSAGES, NAMES, getRandomArrayElement};
